@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var fullMonths;
+      function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
+        var fullMonths = Math.floor(numDays - (numDays % 22));
+        console.log("Full Month " + fullMonths);
+
+        var fullDays = Math.ceil(numDays - fullMonths);
+        console.log("Days " + fullDays);
+
+        var discountAmount = (100 - discount * 100) / 100;
+        console.log("With Discount, left " + discountAmount + "%");
+
+        var fullMonthsPay = fullMonths * ratePerHour * 8 * discountAmount;
+        console.log(fullMonthsPay);
+
+        var fullDaysPay = fullDays * 8 * ratePerHour;
+        console.log(fullDaysPay);
+
+        return fullMonthsPay + fullDaysPay;
+      }
+      console.log(priceWithMonthlyDiscount(89, 230, 0.42));
+      // => 97972
+      /*
+      Total Day 230
+      Full months: 10 (220 Days)
+      Rest of Days: 230-220 = 10 Days
+
+      Monthly Pay without Discount = (220 Days * 8 Hour A day * 89$ Per hour) = 1,56,640$
+      Monthly Pay with Discount = (1,56,640 * (100 - 42 = 58)) = 90851
+
+      Rest of Days Pay = (10 Days * 8 Hour A day * 89$ Per hour) = 7120
+
+      Total = 97971
+      */
+    </script>
+  </body>
+</html>
