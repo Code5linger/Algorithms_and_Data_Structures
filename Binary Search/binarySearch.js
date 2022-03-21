@@ -27,6 +27,7 @@ const search = (val, arr) => {
 
 console.log("\n" + search(15, values) + " Output");
 */
+/*
 const values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const search = (val, arr) => {
@@ -39,3 +40,15 @@ const search = (val, arr) => {
 };
 
 console.log(search(7, values));
+*/
+const values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+let search = (val, arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (val === arr[i]) {
+      return i;
+    }
+  }
+  return -1;
+};
+console.log(search(100, values));
